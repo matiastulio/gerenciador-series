@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'gerenciador-series ';
+  title = 'gerenciador-series';
+  autor = 'Túlio de Carvalho Matias';
+  series:any = [{titulo: 'naruto', qtdEpisodios: '5'}];
 }
