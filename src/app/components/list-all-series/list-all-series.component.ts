@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-all-series',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-all-series.component.scss']
 })
 export class ListAllSeriesComponent {
+
+  @Input() series:any;
 
 }
