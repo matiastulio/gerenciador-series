@@ -21,7 +21,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { TituloToolbarComponent } from './components/titulo-toolbar/titulo-toolbar.component';
 import { RodapeComponent } from './components/rodape/rodape.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { DescricaoProjetoComponent } from './components/descricao-projeto/descricao-projeto.component';
 
+const routes: Routes = [
+  { path: 'descricao', component: DescricaoProjetoComponent },
+  { path: 'lista', component: ListAllSeriesComponent },
+  { path: '',   redirectTo: '/lista', pathMatch: 'full' },
+  {path: '**', redirectTo: '/lista'}
+];
 
 @NgModule({
   declarations: [
@@ -30,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     ListAllSeriesComponent,
     TituloToolbarComponent,
     RodapeComponent,
+    DescricaoProjetoComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +56,11 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatDividerModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
