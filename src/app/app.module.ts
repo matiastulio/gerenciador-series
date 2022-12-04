@@ -20,9 +20,10 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { TituloToolbarComponent } from './components/titulo-toolbar/titulo-toolbar.component';
 import { RodapeComponent } from './components/rodape/rodape.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DescricaoProjetoComponent } from './components/descricao-projeto/descricao-projeto.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [
   { path: 'descricao', component: DescricaoProjetoComponent },
@@ -57,6 +58,8 @@ const routes: Routes = [
     MatDividerModule,
     MatButtonModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

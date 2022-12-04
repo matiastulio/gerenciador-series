@@ -1,5 +1,7 @@
 import { Component, Inject, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-crud-series',
@@ -7,22 +9,46 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog
   styleUrls: ['./crud-series.component.scss']
 })
 export class CrudSeriesComponent {
-  constructor(
-    public dialogRef: MatDialogRef<CrudSeriesComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-  ) {
-    this.titulo = data.titulo;
-  }
 
+  public seriesForm: FormGroup;
+  public formErrors = {
+    titulo: '',
+    descricao: '',
+    tipo: '',
+    episodio: ''
+  };
 
   serie: any = {
     titulo:"",
-    descricao:""
+    descricao:"",
+    tipo:"",
+    episodio:""
   };
   titulo = '';
 
 
-  validateSerie(){
-    console.log("TODO: validar série");
+  constructor(
+    public form: FormBuilder,
+    public dialogRef: MatDialogRef<CrudSeriesComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private localStore: LocalStorageService
+  ) {
+    this.titulo = data.titulo;
+    this.seriesForm = this.form.group({
+      titulo: ['', [Validators.required]],
+      descricao: [''],
+      tipo: ['', [Validators.required]],
+      episodio: ['', [Validators.required]]
+    });
+    if(data.serie !== undefined){
+      this.seriesForm.setValue(data.serie);
+    }
+  }
+
+  saveSeries(){
+    let series = JSON.parse(this.localStore.getDados("series") || '[]');
+    series.push(this.seriesForm.value);
+    this.localStore.salvar("series",JSON.stringify(series));
+    console.log(this.localStore.getDados("series"));
   }
 }

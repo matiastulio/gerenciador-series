@@ -13,13 +13,11 @@ export class TituloToolbarComponent {
   constructor(public dialog: MatDialog) {}
   openDialog(){
     const dialogRef = this.dialog.open(CrudSeriesComponent, {
-      width: '450px',
+      width: '470px',
       data: {titulo: this.titulo},
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.animal = result;
     });
   }
 }

@@ -3,8 +3,10 @@
     <mat-card-content>
       <mat-list-item><b class="alignleft">Série</b> <b class="alignright">Quantidade de Episódios</b></mat-list-item> <br>
       <mat-list-item *ngFor="let serie of series">
-        <div class="alignleft">{{serie.titulo}}</div>
-        <div class="alignright"> {{serie.qtdEpisodios}}</div>
+        <span>
+          <div class="alignleft">{{serie.titulo}}</div>
+          <div class="alignright"> {{serie.qtdEpisodios}}</div>
+        </span>
       </mat-list-item>
     </mat-card-content>
   </mat-card>

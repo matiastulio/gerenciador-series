@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-list-all-series',
@@ -7,6 +8,13 @@ import { Component, Input } from '@angular/core';
 })
 export class ListAllSeriesComponent {
 
-  @Input() series:any;
+  series:any;
 
+  constructor(private localStore: LocalStorageService) {
+    this.buscaSeries();
+  }
+
+  buscaSeries() {
+      this.series = this.localStore.getDados("series");
+  }
 }
