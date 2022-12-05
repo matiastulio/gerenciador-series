@@ -1,0 +1,55 @@
+<div class="center">
+  <mat-card>
+    <mat-card-header><h1>Lista de Séries</h1></mat-card-header>
+    <mat-card-content>
+      <div class="overflow-table">
+        <table mat-table [dataSource]="series" class="mat-elevation-z8">
+          <!-- Position Column -->
+          <ng-container matColumnDef="titulo">
+            <th mat-header-cell *matHeaderCellDef>Título</th>
+            <td mat-cell *matCellDef="let element">{{element.titulo}}</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="descricao">
+            <th mat-header-cell *matHeaderCellDef>Descrição</th>
+            <td mat-cell *matCellDef="let element">{{element.descricao}}</td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef>Tipo</th>
+            <td mat-cell *matCellDef="let element">{{element.tipo}}</td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="episodio">
+            <th mat-header-cell *matHeaderCellDef>Episódio</th>
+            <td mat-cell *matCellDef="let element">{{element.episodio}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="editar" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+            <td mat-cell *matCellDef="let element; let i = index">
+              <button mat-icon-button (click)="editar(i)">
+                  <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="excluir" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+            <td mat-cell *matCellDef="let element; let i = index">
+              <button mat-icon-button (click)="remover(i)">
+                  <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+          <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

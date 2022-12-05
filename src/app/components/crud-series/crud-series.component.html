@@ -1,0 +1,48 @@
+<mat-card style="max-width:50%;">
+  <mat-card-header>
+    <mat-card-title>
+    {{titulo}}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form" style="width: 440px;" [formGroup]="seriesForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome Série</mat-label>
+        <input matInput placeholder="Ex. Naruto" formControlName="titulo" required>
+      </mat-form-field>
+      <mat-error *ngIf="seriesForm.controls['titulo'].invalid && seriesForm.controls['titulo'].touched" >Informe um título!</mat-error>
+      <p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput placeholder="Ex. possui 100 episódios" formControlName="descricao" ></textarea>
+        </mat-form-field>
+      </p>
+      <table>
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Tipo da série</mat-label>
+              <mat-select formControlName="tipo" >
+                <mat-option value="Série de TV">Série de TV</mat-option>
+                <mat-option value="Anime">Anime</mat-option>
+                <mat-option value="Mangá">Mangá</mat-option>
+                <mat-option value="Light Novel">Light Novel</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-error *ngIf="seriesForm.controls['tipo'].invalid && seriesForm.controls['tipo'].touched" >Selecione o tipo da série!</mat-error>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Episódio/Capítulo</mat-label>
+              <input matInput placeholder="Ex. 50" type="number" formControlName="episodio" required>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancelar</button>
+      <button mat-raised-button mat-dialog-close [disabled]="!seriesForm.valid" (click)="saveSeries()" color="primary" >Salvar</button>
+    </div>
+  </mat-card-content>
+</mat-card>
