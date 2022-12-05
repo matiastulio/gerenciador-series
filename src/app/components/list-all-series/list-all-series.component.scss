@@ -1,7 +1,19 @@
 
-.alignleft {
-	float: left;
+table {
+  width: 100%;
 }
-.alignright {
-	float: right;
+.overflow-table {
+  height: 400px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.mat-column-editar {
+  flex: none;
+  width: 30px !important;
+}
+
+.mat-column-excluir {
+  flex: none;
+  width: 30px !important;
 }

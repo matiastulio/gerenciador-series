@@ -23,10 +23,10 @@
             <mat-form-field appearance="fill">
               <mat-label>Tipo da série</mat-label>
               <mat-select formControlName="tipo" >
-                <mat-option value="1">Série de TV</mat-option>
-                <mat-option value="2">Anime</mat-option>
-                <mat-option value="3">Mangá</mat-option>
-                <mat-option value="4">Light Novel</mat-option>
+                <mat-option value="Série de TV">Série de TV</mat-option>
+                <mat-option value="Anime">Anime</mat-option>
+                <mat-option value="Mangá">Mangá</mat-option>
+                <mat-option value="Light Novel">Light Novel</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-error *ngIf="seriesForm.controls['tipo'].invalid && seriesForm.controls['tipo'].touched" >Selecione o tipo da série!</mat-error>
@@ -42,7 +42,7 @@
     </form>
     <div mat-dialog-actions>
       <button mat-button mat-dialog-close>Cancelar</button>
-      <button mat-button mat-dialog-close cdkFocusInitial [disabled]="!seriesForm.valid" (click)="saveSeries()">Salvar</button>
+      <button mat-raised-button mat-dialog-close [disabled]="!seriesForm.valid" (click)="saveSeries()" color="primary" >Salvar</button>
     </div>
   </mat-card-content>
 </mat-card>

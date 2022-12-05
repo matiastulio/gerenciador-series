@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DescricaoProjetoComponent } from './components/descricao-projeto/descricao-projeto.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes = [
   { path: 'descricao', component: DescricaoProjetoComponent },
@@ -60,6 +61,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatTableModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
