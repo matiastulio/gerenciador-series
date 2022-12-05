@@ -1,7 +1,9 @@
 # gerenciador-series
 A aplicação web irá auxiliar no gerenciamento de séries, podendo elas ser: séries de TV, animes, mangás, manhwas, Light Novels e Web novels.
 
-TODO:
+## github
+matiastulio.github.io/gerenciador-series/
+## TODO
 - [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 - [x] Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro).
 - [x] Apresentar as telas com layout responsivo usando ou não algum framework CSS.
