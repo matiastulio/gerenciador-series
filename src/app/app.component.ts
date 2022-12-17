@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'gerenciador-series';
   autor = 'Túlio de Carvalho Matias';
-  series:any = [{titulo: 'naruto', qtdEpisodios: '5'}];
 }

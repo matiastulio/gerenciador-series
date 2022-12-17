@@ -47,6 +47,9 @@ export class ListAllSeriesComponent {
 
   atualizaSeries() {
     this.series = JSON.parse(this.localStore.getDados("series") || '[]');
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+      console.log(registrations);
+    });
   }
 }
 
