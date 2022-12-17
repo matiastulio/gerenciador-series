@@ -1,6 +1,10 @@
 <mat-toolbar color="primary">
   <span>Gerenciador de Séries </span>
   <span class="example-spacer"></span>
+  <mat-chip-listbox aria-label="status" style="padding-right: 10px;">
+    <mat-chip *ngIf="isOnline" style="background-color: green;">Online</mat-chip>
+    <mat-chip *ngIf="!isOnline" style="background-color: red;">Offline</mat-chip>
+  </mat-chip-listbox>
   <button mat-raised-button [routerLink]="['/descricao']" style="margin-right: 10px;">Descrição Projeto</button>
   <button mat-raised-button (click)="openDialog()">Adicionar Série</button>
 </mat-toolbar>
